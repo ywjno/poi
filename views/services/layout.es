@@ -85,14 +85,14 @@ const setCSS = ({webviewWidth, webviewHeight, tabpaneHeight, layout, zoomLevel, 
     poi-app {
       top: ${layout === 'vertical' ? `calc(30px * ${zoomLevel - 1})` : 0};
     }
-    div[role='tooltip'], #poi-app-container, poi-info {
+    div[role='tooltip'], #poi-app-container {
       transform : scale(${zoomLevel});
     }
     .poi-control-tooltip {
       max-height: ${Math.ceil(poiControlHeight / zoomLevel)}px;
     }
-    #poi-app-container, poi-info {
-      width: calc(100% / ${zoomLevel});
+    #poi-app-container {
+      width: ${Math.floor(100 / zoomLevel)}%;
     }
     poi-nav poi-nav-tabs .nav .dropdown-menu {
       max-height: ${tabpaneHeight};

@@ -60,7 +60,6 @@ body {
 }
 kan-game {
   overflow-x: hidden;
-  height: 100vh;
 }
 kan-game webview {
   height: 100%;
@@ -103,7 +102,7 @@ hr {
   margin-bottom: 5px;
 }
 poi-app {
-  position: relative;
+  position: static;
   width: 0;
   height: 0;
 }
@@ -346,8 +345,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   opacity: 0;
 }
 div[role='tooltip'],
-#poi-app-container,
-poi-info {
+#poi-app-container {
   transform-origin: 0 0;
 }
 
