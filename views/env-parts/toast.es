@@ -27,20 +27,20 @@ window.toast = (msg, options={}) => {
   }
   const type = options.type || 'info'
   const title = options.title || 'poi'
-  options.showAnimation = options.showAnimation || "animated fadeInLeft"
-  options.hideAnimation = options.hideAnimation || "animated fadeOutDown"
+  options.effect = 'slide'
+  options.position = 'bottom-right'
   switch (type) {
   case 'success':
-    toastTrigger.success(msg, title, options)
+    toastTrigger.success(msg + title, options)
     break
   case 'warning':
-    toastTrigger.warning(msg, title, options)
+    toastTrigger.warning(msg + title, options)
     break
   case 'error':
-    toastTrigger.error(msg, title, options)
+    toastTrigger.error(msg + title, options)
     break
   default:
-    toastTrigger.info(msg, title, options)
+    toastTrigger.info(msg + title, options)
     break
   }
 }
