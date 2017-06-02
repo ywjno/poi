@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Alert, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import { join } from 'path-extra'
@@ -26,15 +26,6 @@ import {
 
 const {ROOT, i18n} = window
 const __ = i18n.main.__.bind(i18n.main)
-const { Component } = React
-
-const getFontStyle = () => {
-  if (window.isDarkTheme) {
-    return {color: '#FFF'}
-  } else {
-    return {color: '#000'}
-  }
-}
 
 class CountdownLabel extends Component {
   constructor(props) {
@@ -171,7 +162,7 @@ export default connect(
         <span style={{flex: "none", marginLeft: 5}}>{__('LOS')}: {saku33.total.toFixed(2)}</span>
       </div>
       :
-      <Alert style={getFontStyle()}>
+      <Alert style={{color: '#FFF'}}>
         <div style={{display: "flex"}}>
           <span style={{flex: "1"}}>{__(getSpeedLabel(speed))} </span>
           <span style={{flex: 1}}>{__('Total Lv')}. {totalLv}</span>

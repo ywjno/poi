@@ -107,7 +107,7 @@ const LBView = connect(state => ({
               squardId={i}
             /> :
             <div key={i}>
-              <Alert style={{ color: window.isDarkTheme ? '#FFF' : '#000' }} className='airbase-area'>
+              <Alert style={{ color: '#FFF' }} className='airbase-area'>
                 [{id}] {window.i18n.resources.__((mapareas[id] || {}).api_name || '')}
               </Alert>
               <SquardRow

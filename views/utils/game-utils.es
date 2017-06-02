@@ -59,7 +59,7 @@ export function getCondStyle(cond) {
     s += '20'
   else
     s += '0'
-  s += window.isDarkTheme ? ' dark' : ' light'
+  s += ' dark'
   return s
 }
 

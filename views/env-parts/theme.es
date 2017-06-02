@@ -14,10 +14,12 @@ window.reloadCustomCss = () => {
   $('#custom-css').setAttribute('href', `file://${EXROOT}/hack/custom.css`)
 }
 
-window.loadTheme = (th) => {
-  window.theme = th
-  const {theme} = window
-  window.isDarkTheme = /(dark|black|slate|superhero|papercyan)/i.test(th)
+window.loadTheme = (theme) => {
+  window.theme = theme
+  const isDarkTheme = /(dark|black|slate|superhero|papercyan)/i.test(theme)
+  if (!isDarkTheme) {
+    theme = 'paperdark'
+  }
   if (!$('#bootstrap-css')) {
     return
   }
@@ -33,7 +35,7 @@ window.loadTheme = (th) => {
 window.applyTheme = (th) => {
   config.set('poi.theme', th)
   window.loadTheme(th)
-  const event = new CustomEvent( 'theme.change',{
+  const event = new CustomEvent('theme.change', {
     bubbles: true,
     cancelable: true,
     detail: {
@@ -43,6 +45,6 @@ window.applyTheme = (th) => {
   window.dispatchEvent(event)
 }
 
-window.allThemes = ['__default__'].concat(glob.sync(`${ROOT}/assets/themes/*/`).map((dirPath) => (path.basename(dirPath))))
+window.allThemes = glob.sync(`${ROOT}/assets/themes/*/`).map((dirPath) => (path.basename(dirPath)))
 config.setDefault('poi.theme', 'paperdark')
 window.loadTheme(config.get('poi.theme', 'paperdark'))
