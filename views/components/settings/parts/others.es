@@ -164,7 +164,7 @@ class AppMetrics extends PureComponent {
             }
             <div className='metric-row metric-total'>
               <span>
-                TOTAL
+                {__('TOTAL')}
               </span>
               <span />
               <span>
